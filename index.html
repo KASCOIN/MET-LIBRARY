@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METEOROLOGY & CLIMATE SCIENCE LIBRARY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJsdXUlMjBjbG91ZHN8ZW58MHx8fHwxNjYyMjY3NzY0&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(0, 77, 116, 0.8), rgba(0, 51, 77, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(3deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1; /* Allow the container to grow and fill space */
+        }
+
+        /* Feature Buttons */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-btn {
+            padding: 2rem;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-btn.gpa {
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Feature Sections */
+        .feature-section {
+            display: none;
+            margin: 2rem 0;
+        }
+
+        /* Materials Section */
+        .dropdown-container {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        select {
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            border: 2px solid #007bff;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            width: 100%;
+            max-width: 400px;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.1);
+        }
+
+        select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,123,255,0.15);
+        }
+
+        .dropdown-icon {
+            position: absolute;
+            right: calc(50% - 200px);
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #007bff;
+        }
+
+        .courses-container {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .course-btn {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .course-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .course-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .course-info {
+            flex-grow: 1;
+        }
+
+        .course-code {
+            font-weight: 700;
+            color: #004d74;
+            margin-bottom: 0.5rem;
+        }
+
+        /* GPA Calculator Section */
+        .gpa-container {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin: 2rem 0;
+        }
+
+        .gpa-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .gpa-course-list {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gpa-course {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .grade-select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: white;
+        }
+
+        .gpa-result {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #004d74;
+            padding: 1rem;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        /* Password Modal Styles */
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .password-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 1rem 0;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .password-input:focus {
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .modal-button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .confirm-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            background: #0056b3;
+        }
+
+        .cancel-btn {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .cancel-btn:hover {
+            background: #e9ecef;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #004d74;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+            position: fixed; /* Make the footer fixed */
+            bottom: 0;
+            width: 100%;
+            
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .footer a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer .footer-text {
+            font-style: ; /* Make the text cursive */
+            font-size: 0.8rem; /* Smaller font size */
+            margin-top: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer .footer-texttext {
+            font-style: italic; /* Make the text cursive */
+            font-size: 0.3px; /* Smaller font size */
+            margin-top: 0.6rem;
+
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem;
+            }
+            
+            .dropdown-icon {
+                right: 15px;
+            }
+            
+            select {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .gpa-course {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .feature-btn {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-modal" id="passwordModal">
+        <div class="password-box">
+            <h3 id="modalTitle">Enter Semester Password</h3>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Enter password...">
+            <div class="error-message" id="errorMessage">Incorrect password!</div>
+            <div class="modal-buttons">
+                <button class="modal-button confirm-btn" onclick="checkPassword()">Submit</button>
+                <button class="modal-button cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>METEOROLOGY & CLIMATE SCIENCE LIBRARY</h1>
+        <p>University of Lagos</p>
+    </header>
+
+    <div class="container">
+        <div class="features-grid">
+            <button class="feature-btn" onclick="toggleFeature('materials')">
+                <span class="feature-icon">📚</span>
+                Access Materials
+            </button>
+            
+            <button class="feature-btn gpa" onclick="toggleFeature('gpa')">
+                <span class="feature-icon">🧮</span>
+                GPA Calculator
+            </button>
+        </div>
+
+        <!-- Materials Section -->
+        <div class="feature-section" id="materialsSection">
+            <div class="dropdown-container">
+                <select id="semesterSelect" onchange="showCourses()">
+                    <option value="">-- Select Academic Semester --</option>
+                    <option value="100-1">100 Level - First Semester</option>
+                    <option value="100-2">100 Level - Second Semester</option>
+                    <option value="200-1">200 Level - First Semester</option>
+                    <option value="200-2">200 Level - Second Semester</option>
+                    <option value="300-1">300 Level - First Semester</option>
+                    <option value="300-2">300 Level - Second Semester</option>
+                </select>
+                <div class="dropdown-icon">▼</div>
+            </div>
+            <div id="coursesContainer" class="courses-container"></div>
+        </div>
+
+        <!-- GPA Calculator Section -->
+        <div class="feature-section" id="gpaSection">
+            <div class="gpa-container" id="gpaCalculator">
+                <div class="gpa-header">
+                    <h3>GPA Calculator</h3>
+                    <select id="gpaSemester" onchange="loadCoursesForGPA()">
+                        <option value="">Select Semester</option>
+                        <option value="100-1">100 Level - 1st</option>
+                        <option value="100-2">100 Level - 2nd</option>
+                        <option value="200-1">200 Level - 1st</option>
+                        <option value="200-2">200 Level - 2nd</option>
+                        <option value="300-1">300 Level - 1st</option>
+                        <option value="300-2">300 Level - 2nd</option>
+                    </select>
+                </div>
+                <div class="gpa-course-list" id="gpaCourseList"></div>
+                <button class="modal-button confirm-btn" onclick="calculateGPA()" style="width: 100%">Calculate GPA</button>
+                <div class="gpa-result" id="gpaResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">For suggestion and Uploading of Materials You can Contact:</div>
+        <a href="https://wa.me/qr/5FI6G7ON5TTRM1" target="_blank">
+            <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
+        </a>
+        <a href="mailto:meteorologyandclimatescience@gmail.com">
+            <i class="fas fa-envelope"></i> <!-- Email Icon -->
+        </a>
+        <div class="footer-texttext" style="font-style: italic; font-size: 0.8rem;">Made by MAZIMUM</div>
+    </div>
+
+    <script>
+        // Feature toggling functionality
+        let activeFeature = null;
+
+        function toggleFeature(featureName) {
+            const features = {
+                'materials': document.getElementById('materialsSection'),
+                'gpa': document.getElementById('gpaSection')
+            };
+
+            if (activeFeature === featureName) {
+                // Clicking the same button closes the feature
+                features[featureName].style.display = 'none';
+                activeFeature = null;
+            } else {
+                // Close any open feature and open selected one
+                if (activeFeature) {
+                    features[activeFeature].style.display = 'none';
+                }
+                features[featureName].style.display = 'block';
+                activeFeature = featureName;
+                
+                // Special handling for GPA calculator
+                if (featureName === 'gpa') {
+                    document.getElementById('gpaCalculator').style.display = 'block';
+                }
+            }
+        }
+
+        // Original password and courses functionality
+        const passwords = {
+            '100-1': 'temperature',
+            '100-2': 'humidity',
+            '200-1': 'rainfall',
+            '200-2': 'sunshine',
+            '300-1': 'wind',
+            '300-2': 'pressure'
+        };
+
+        const courseData = {
+            '100-1': [
+                {code: 'GST 112', name: 'Nigerian Peoples and Culture', link: '#', type: 'Compulsory'},
+                {code: 'MTH 102', name: 'Elementary Mathematics II', link: '#', type: 'Compulsory'},
+                {code: 'BIO 102', name: 'General Biology II', link: '#', type: 'Elective'},
+                {code: 'BIO 108', name: 'General Biology Practical II', link: '#', type: 'Compulsory'},
+                {code: 'CHM 102', name: 'General Chemistry II', link: '#', type: 'Compulsory'},
+                {code: 'CHM 108', name: 'General Chemistry Practical II', link: '#', type: 'Compulsory'},
+                {code: 'MET 101', name: 'Introduction to Meteorology', link: '#', type: 'Compulsory'},
+                {code: 'PHY 102', name: 'General Physics II', link: '#', type: 'Compulsory'},
+                {code: 'PHY 108', name: 'General Physics Practical II', link: '#', type: 'Compulsory'},
+                {code: 'LAG-MET 193', name: 'Meteorological Instrumentation I', link: '#', type: 'Compulsory'},
+                {code: 'LAG-MET 113', name: 'Climate and the terrestrial environments', link: '#', type: 'Compulsory'}
+            ],
+            '100-2': [
+                {code: 'MET 121', name: 'Man and Environment', link: '#', type: 'Compulsory'},
+                {code: 'MET 122', name: 'Climate change and sustainable development', link: '#', type: 'Compulsory'},
+                {code: 'MET 123', name: 'Meteorological Instrumentation II', link: '#', type: 'Compulsory'},
+                {code: 'MET 124', name: 'Map Analysis and Meteorological Data Graphics', link: '#', type: 'Compulsory'},
+                {code: 'CSC 120', name: 'COMPUTER AS A PROBLEM SOLVING TOOL', link: '#', type: 'Elective'},
+                {code: 'CSC 121', name: 'SOFTWARE WORKSHOP II', link: '#', type: 'Elective'},
+                {code: 'MAT 122', name: 'CALCULUS', link: '#', type: 'Compulsory'},
+                {code: 'MAT 123', name: 'MECHANICS I', link: '#', type: 'Compulsory'},
+            ],
+            '200-1': [
+                {code: 'GST 201', name: 'General African Studies I', link: '#', type: 'Compulsory'},
+                {code: 'MET 211', name: 'Atmospheric Environment II', link: '#', type: 'Compulsory'},
+                {code: 'MET 212', name: 'Codes. Obsv. & Plotting', link: '#', type: 'Compulsory'},
+                {code: 'GRY 230', name: 'Elements of Remote Sensing', link: 'https://drive.google.com/drive/folders/15zFxmtWw0N4vsTCW7wwqRuIV6aTRHg40?usp=sharing', type: 'Elective'},
+                {code: 'GRY 212', name: 'Elements of Climatology and Climate Change', link: '#', type: 'Compulsory'},
+                {code: 'MAT 233', name: 'Mathematical Methods I', link: '#', type: 'Compulsory'},
+                {code: 'MAT 216', name: 'Numeric Analysis I', link: '#', type: 'Compulsory'},
+                {code: 'PHS 216', name: 'Electronics I', link: '#', type: 'Elective'},
+            ],
+            '200-2': [
+                {code: 'MET 101', name: 'Introduction to Meteorology', link: '#', type: 'Compulsory'},
+                {code: 'MET 102', name: 'Atmospheric Physics', link: '#', type: 'Compulsory'},
+                {code: 'CLM 101', name: 'Climate Systems', link: '#', type: 'Compulsory'},
+            ],
+            '300-1': [
+                {code: 'MET 301', name: 'Advanced Meteorology', link: '#', type: 'Compulsory'},
+                {code: 'MET 302', name: 'Climate Dynamics', link: '#', type: 'Compulsory'},
+                {code: 'CLM 201', name: 'Climate Change Mitigation', link: '#', type: 'Elective'},
+            ],
+            '300-2': [
+                {code: 'MET 311', name: 'Meteorological Modeling', link: '#', type: 'Compulsory'},
+                {code: 'MET 312', name: 'Applied Climatology', link: '#', type: 'Compulsory'},
+                {code: 'CLM 301', name: 'Climate Policy', link: '#', type: 'Elective'},
+            ],
+        };
+
+        let currentSemester = null;
+
+        function showCourses() {
+            const select = document.getElementById('semesterSelect');
+            currentSemester = select.value;
+            
+            if (currentSemester) {
+                const semesterName = select.options[select.selectedIndex].text;
+                document.getElementById('modalTitle').textContent = `Password for ${semesterName}`;
+                document.getElementById('passwordModal').style.display = 'flex';
+                document.getElementById('errorMessage').style.display = 'none';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            const correctPassword = passwords[currentSemester];
+            
+            if (enteredPassword === correctPassword) {
+                displayCourses();
+                closeModal();
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+
+        function displayCourses() {
+            const container = document.getElementById('coursesContainer');
+            container.innerHTML = '';
+            
+            courseData[currentSemester].forEach(course => {
+                const units = courseCredits[currentSemester][course.code] || 3; // Get units for the course
+                const button = document.createElement('a');
+                button.className = 'course-btn';
+                button.innerHTML = `
+                    <div class="course-icon">🌤️</div>
+                    <div class="course-info">
+                        <div class="course-code">${units} Units - ${course.code}</div>
+                        <div>${course.name} (${course.type})</div>
+                    </div>
+                `;
+                button.href = course.link;
+                button.target = "_blank";
+                container.appendChild(button);
+            });
+            
+            container.style.display = 'grid';
+        }
+
+        function closeModal() {
+            document.getElementById('passwordModal').style.display = 'none';
+            if (!document.getElementById('coursesContainer').innerHTML) {
+                document.getElementById('semesterSelect').value = '';
+            }
+        }
+
+        // GPA Calculator functionality
+        const courseCredits = {
+            '100-1': {
+                'GST 112': 3,
+                'MTH 102': 3,
+                'BIO 102': 2,
+                'BIO 108': 1,
+                'CHM 102': 3,
+                'CHM 108': 1,
+                'MET 101': 3,
+                'PHY 102': 3,
+                'PHY 108': 1,
+                'LAG-MET 193': 2,
+                'LAG-MET 113': 2
+            },
+            '100-2': {
+                'MET 121': 3,
+                'MET 122': 3,
+                'MET 123': 3,
+                'MET 124': 3,
+                'CSC 120': 3,
+                'CSC 121': 3,
+                'MAT 122': 3,
+                'MAT 123': 3,
+            },
+            '200-1': {
+                'GST 201': 3,
+                'MET 211': 3,
+                'MET 212': 3,
+                'GRY 230': 3,
+                'GRY 212': 3,
+                'MAT 233': 3,
+                'MAT 216': 3,
+                'PHS 216': 3,
+            },
+            '200-2': {
+                'MET 101': 3,
+                'MET 102': 3,
+                'CLM 101': 3,
+            },
+            '300-1': {
+                'MET 301': 3,
+                'MET 302': 3,
+                'CLM 201': 3,
+            },
+            '300-2': {
+                'MET 311': 3,
+                'MET 312': 3,
+                'CLM 301': 3,
+            },
+        };
+
+        const gradePoints = {
+            'A': 5, 'B': 4, 'C': 3, 'D': 2, 'E': 1, 'F': 0
+        };
+
+        function loadCoursesForGPA() {
+            const semester = document.getElementById('gpaSemester').value;
+            const courseList = document.getElementById('gpaCourseList');
+            courseList.innerHTML = '';
+
+            if (courseData[semester]) {
+                courseData[semester].forEach(course => {
+                    // Skip GST courses
+                    if (course.code.startsWith('GST')) {
+                        return; // Skip this iteration
+                    }
+
+                    const units = courseCredits[semester][course.code] || 3; // Get units for the course
+                    const courseDiv = document.createElement('div');
+                    courseDiv.className = 'gpa-course';
+                    courseDiv.innerHTML = `
+                        <div style="flex: 1">${units} Units - ${course.code} - ${course.name} (${course.type})</div>
+                        <select class="grade-select" id="grade-${course.code}">
+                            <option value="">Select Grade</option>
+                            ${Object.keys(gradePoints).map(grade => 
+                                `<option value="${grade}">${grade}</option>`
+                            ).join('')}
+                        </select>
+                    `;
+                    courseList.appendChild(courseDiv);
+                });
+            }
+        }
+
+        function calculateGPA() {
+            const semester = document.getElementById('gpaSemester').value;
+            const courses = courseData[semester] || [];
+            let totalQualityPoints = 0;
+            let totalUnits = 0;
+
+            courses.forEach(course => {
+                // Skip GST courses
+                if (course.code.startsWith('GST')) {
+                    return; // Skip this iteration
+                }
+
+                const gradeSelect = document.getElementById(`grade-${course.code}`);
+                const grade = gradeSelect.value.toUpperCase();
+                const units = courseCredits[semester][course.code] || 3;
+                
+                if (grade && gradePoints[grade] !== undefined) {
+                    totalQualityPoints += units * gradePoints[grade];
+                    totalUnits += units;
+                }
+            });
+
+            if (totalUnits === 0) {
+                document.getElementById('gpaResult').textContent = 'Please select grades for at least one course';
+                return;
+            }
+
+            const gpa = totalQualityPoints / totalUnits;
+            document.getElementById('gpaResult').textContent = 
+                `Your GPA: ${gpa.toFixed(2)} (${totalUnits} units)`;
+        }
+    </script>
+
+</body>
+</html>
