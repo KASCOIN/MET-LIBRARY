@@ -15,7 +15,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJsdXUlMjBjbG91ZHN8ZW58MHx8fHwxNjYyMjY3NzY0&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
             background-size: cover;
             color: #333;
             min-height: 100vh;
@@ -24,7 +24,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, rgb(101, 62, 125), rgb(39, 18, 51));
+            background: rgba(39, 18, 51, 0.8);
             color: white;
             padding: 2rem;
             text-align: center;
@@ -33,15 +33,12 @@
             overflow: hidden;
         }
 
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: -50px;
-            left: -10%;
-            width: 120%;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(3deg);
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
         }
 
         .container {
@@ -316,7 +313,6 @@
             position: relative; /* Make the footer relative */
             bottom: 0;
             width: 100%;
-            
         }
 
         .footer a {
@@ -334,17 +330,10 @@
         }
 
         .footer .footer-text {
-            font-style: ; /* Make the text cursive */
-            font-size: 0.8rem; /* Smaller font size */
-            margin-top: 0.6rem;
-            margin-bottom: 1rem;
-        }
-        
-        .footer .footer-texttext {
             font-style: italic; /* Make the text cursive */
-            font-size: 0.3px; /* Smaller font size */
-            margin-top: 0.6rem;
-
+            font-size: 0.8rem; /* Smaller font size */
+            margin-top: 0.2rem;
+            margin-bottom: 0.9rem;
         }
 
         @media (max-width: 768px) {
@@ -370,6 +359,64 @@
                 padding: 1.5rem;
                 font-size: 1rem;
             }
+        }
+
+        /* Add styles for the search bar */
+        .search-container {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            width: 80%;
+            max-width: 400px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .search-button:hover {
+            background: #0056b3;
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .result-item {
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: white;
+            background-color: black;
+        }
+
+        .result-item:hover {
+            background: #e9ecef;
+            color: black;
         }
     </style>
 </head>
@@ -418,6 +465,11 @@
                 </select>
                 <div class="dropdown-icon">▼</div>
             </div>
+            <div class="search-container">
+                <input type="text" class="search-input" id="courseSearch" placeholder="Search by course code...">
+                <button class="search-button" onclick="showSearchResults()">Search</button>
+            </div>
+            <div id="resultsContainer" class="results-container"></div>
             <div id="coursesContainer" class="courses-container"></div>
         </div>
 
@@ -444,14 +496,13 @@
     </div>
 
     <div class="footer">
-        <div class="footer-text">For suggestion and Uploading of Materials You can Contact:</div>
+        <div class="footer-text">For Suggestion and Enquiries You can Contact:</div>
         <a href="https://wa.me/qr/5FI6G7ON5TTRM1" target="_blank">
             <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
         </a>
         <a href="mailto:meteorologyandclimatescience@gmail.com">
             <i class="fas fa-envelope"></i> <!-- Email Icon -->
         </a>
-        <div class="footer-texttext" style="font-style: italic; font-size: 0.8rem;">Made by MAZIMUM</div>
     </div>
 
     <script>
@@ -577,13 +628,12 @@
             container.innerHTML = '';
             
             courseData[currentSemester].forEach(course => {
-                const units = courseCredits[currentSemester][course.code] || 3; // Get units for the course
                 const button = document.createElement('a');
                 button.className = 'course-btn';
                 button.innerHTML = `
                     <div class="course-icon">🌤️</div>
                     <div class="course-info">
-                        <div class="course-code">${units} Units - ${course.code}</div>
+                        <div class="course-code">${course.code}</div>
                         <div>${course.name} (${course.type})</div>
                     </div>
                 `;
@@ -595,11 +645,57 @@
             container.style.display = 'grid';
         }
 
+        function showSearchResults() {
+            const searchInput = document.getElementById('courseSearch').value.toLowerCase();
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '';
+
+            if (searchInput) {
+                const filteredCourses = Object.entries(courseData).flatMap(([semester, courses]) => 
+                    courses.filter(course => 
+                        course.code.toLowerCase().includes(searchInput)
+                    ).map(course => ({ ...course, semester }))
+                );
+
+                if (filteredCourses.length === 0) {
+                    resultsContainer.innerHTML = '<div class="result-item">No courses found.</div>';
+                } else {
+                    filteredCourses.forEach(course => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'result-item';
+                        resultItem.textContent = `${course.code} - ${course.name} (${course.semester})`;
+                        resultItem.onclick = () => {
+                            // Show password modal for the selected course
+                            document.getElementById('modalTitle').textContent = `Enter Password for ${course.code} (${course.semester})`;
+                            document.getElementById('passwordModal').style.display = 'flex';
+                            document.getElementById('errorMessage').style.display = 'none';
+                            document.getElementById('passwordInput').value = '';
+                            currentCourseLink = course.link; // Store the link for later use
+                        };
+                        resultsContainer.appendChild(resultItem);
+                    });
+                }
+
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        }
+
+        let currentCourseLink = '';
+
         function closeModal() {
             document.getElementById('passwordModal').style.display = 'none';
             if (!document.getElementById('coursesContainer').innerHTML) {
                 document.getElementById('semesterSelect').value = '';
             }
+            currentCourseLink = ''; // Reset the course link
+        }
+
+        function accessCourse() {
+            // Redirect to the course link
+            window.open(currentCourseLink, '_blank');
+            closeModal();
         }
 
         // GPA Calculator functionality
