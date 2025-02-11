@@ -308,3 +308,10 @@
             document.getElementById('gpaResult').textContent = 
                 `Your GPA: ${gpa.toFixed(2)} (${totalUnits} units)`;
         }
+
+
+
+
+        function openUrl() {
+            window.open('blog.html', '_blank');
+        }
