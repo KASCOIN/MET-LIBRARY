@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MET AND CLI SCI BLOG</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1487088678257-3a541e6e3922?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            color: black;
+        }
+
+        header {
+            background: rgba(39, 18, 51, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ffffff;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 2rem auto; /* Added margin for better spacing */
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #news-feed {
+            padding: 20px;
+        }
+
+      .news-item {
+            border-bottom: 1px solid #ccc;
+            padding: 15px 10px;
+            transition: background 0.5s, transform 0.3s;
+            background: none;
+            border-radius: 10px;
+            margin: 1.2rem 0; /* Added margin for better spacing */
+        }
+
+      .news-item:hover {
+            background: rgba(240, 240, 240, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+      .news-title {
+            font-size: 1.2em;
+            margin: 0 0 10px 0; /* Added margin-bottom */
+            color: blue;
+        }
+
+      .news-title:hover {
+            color: rgba(39, 18, 51, 0.8);
+        }
+
+      .news-date {
+            font-size: 0.9em;
+            color: red;
+            font-style: italic;
+            font-weight: bold;
+            margin-bottom: 10px; /* Added margin-bottom */
+        }
+
+      .news-content {
+            margin: 10px 0;
+            font-size: 0.95rem;
+            color: blue;
+        }
+
+      .news-media {
+            margin: 10px 0;
+            max-width: 100%;
+            height: auto; /* Added for responsiveness */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 10px; /* Reduced padding on smaller screens */
+            }
+
+          .news-item {
+                padding: 10px; /* Reduced padding on smaller screens */
+            }
+
+          .news-title {
+                font-size: 1.1em; /* Slightly smaller font size */
+            }
+
+          .news-content {
+                font-size: 0.9em; /* Slightly smaller font size */
+            }
+        }
+
+        /* Modal Background */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Image Inside Modal */
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Close Button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meteorology and Climate Science Blog</h1>
+    </header>
+    <main>
+        <section id="news-feed">
+            <h2>Hot 🔥</h2>
+            <div id="news-container"></div>
+        </section>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsContainer = document.getElementById('news-container');
+
+        // Sample news articles with date, time, image, video, and link
+        const newsArticles = [
+            {
+                title: "Update on hostels for First Semester Practical and Examination",
+                date: "2025-02-09T10:00:00",
+                image: "https://images2.imgbox.com/3a/90/E9Qc4xgj_o.jpeg",
+                link: "https://x.com/foc_embrace001/status/1888499518322143266?s=46",  // Add the news link
+            },
+        ];
+
+        // Function to display news articles
+        function displayNews() {
+            newsArticles.forEach(article => {
+                const newsItem = document.createElement('div');
+                newsItem.classList.add('news-item');
+
+                const newsTitle = document.createElement('h3');
+                newsTitle.classList.add('news-title');
+
+                // Make title clickable if a link exists
+                if (article.link) {
+                    const newsLink = document.createElement('a');
+                    newsLink.href = article.link;
+                    newsLink.target = "_blank";
+                    newsLink.textContent = article.title;
+                    newsLink.style.textDecoration = "underline";
+                    newsLink.style.color = "blue";
+                    
+                    newsLink.onmouseover = function() {
+                    this.style.color = "rgba(39, 18, 51, 0.8)";
+                    };
+                
+                     newsLink.onmouseout = function() {
+                    this.style.color = "blue"; // Reset to the original color
+                    };
+                    newsTitle.appendChild(newsLink);
+                    
+                    
+                } else {
+                    newsTitle.textContent = article.title;
+                }
+
+                const newsDate = document.createElement('p');
+                newsDate.classList.add('news-date');
+
+                // Convert date & time to readable format
+                const postDate = new Date(article.date);
+                newsDate.textContent = `Posted on: ${postDate.toLocaleString()}`;
+
+                const newsContent = document.createElement('p');
+                newsContent.classList.add('news-content');
+                newsContent.textContent = article.content;
+
+                // Add image if available and make it expandable
+                if (article.image) {
+                    const newsImage = document.createElement('img');
+                    newsImage.src = article.image;
+                    newsImage.alt = article.title;
+                    newsImage.classList.add('news-media');
+                    newsImage.style.cursor = "pointer";
+                    newsImage.onclick = function () {
+                        openImageModal(article.image);
+                    };
+                    newsItem.appendChild(newsImage);
+                }
+
+                // Add video if available
+                if (article.video) {
+                    const newsVideo = document.createElement('iframe');
+                    newsVideo.src = article.video;
+                    newsVideo.width = "560";
+                    newsVideo.height = "315";
+                    newsVideo.classList.add('news-media');
+                    newsVideo.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    newsVideo.allowFullscreen = true;
+                    newsItem.appendChild(newsVideo);
+                }
+
+                newsItem.appendChild(newsTitle);
+                newsItem.appendChild(newsDate);
+                newsItem.appendChild(newsContent);
+                newsContainer.appendChild(newsItem);
+            });
+        }
+
+        // Function to open image in a modal
+        function openImageModal(imageSrc) {
+            const modal = document.createElement('div');
+            modal.classList.add('image-modal');
+
+            const modalContent = document.createElement('div');
+            modalContent.classList.add('modal-content');
+
+            const modalImage = document.createElement('img');
+            modalImage.src = imageSrc;
+            modalImage.classList.add('modal-image');
+
+            const closeButton = document.createElement('span');
+            closeButton.classList.add('close-button');
+            closeButton.innerHTML = "&times;";
+            closeButton.onclick = function () {
+                document.body.removeChild(modal);
+            };
+
+            modalContent.appendChild(closeButton);
+            modalContent.appendChild(modalImage);
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+        }
+
+        // Call the function to display news on page load
+        displayNews();
+    });
+    </script>
+</body>
+</html>
+
