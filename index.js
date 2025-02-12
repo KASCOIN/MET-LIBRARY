@@ -313,5 +313,5 @@
 
 
         function openUrl() {
-            window.open('blog.html', '_blank');
+            window.location.href = 'blog.html';
         }
