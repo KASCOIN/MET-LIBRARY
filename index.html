@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>METEOROLOGY & CLIMATE SCIENCE STUDENT LIBRARY</title>
-    <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1K0MSP6B0"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){
-       dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-N1K0MSP6B0');
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
    
@@ -28,7 +17,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.2;
-            background: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background: url('https://images2.imgbox.com/45/b0/6rbH2zWI_o.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #333;
             min-height: 100vh;
@@ -209,15 +198,15 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: #f8f9fa;
+            background: #96bfe9;
             border-radius: 10px;
         }
 
         .grade-select {
             padding: 8px 12px;
             border-radius: 8px;
-            border: 1px solid #ddd;
-            background: white;
+            border: 1px solid #b5afec;
+            background: rgb(83, 97, 230);
         }
 
         .gpa-result {
@@ -226,7 +215,7 @@
             font-weight: bold;
             color: #004d74;
             padding: 1rem;
-            background: #e9ecef;
+            background: #afcae2;
             border-radius: 10px;
             margin-top: 1rem;
         }
@@ -388,6 +377,8 @@
             max-width: 400px;
             outline: none;
             transition: all 0.3s ease;
+            background-color: rgb(147, 143, 204);
+            color: white;
         }
 
         .search-input:focus {
@@ -430,6 +421,16 @@
             background: #e9ecef;
             color: black;
         }
+
+        .gpaSems {
+            background: rgb(173, 180, 238);
+            border: solid 2px;
+            border-radius: 30px;
+            color: black;
+            
+        }
+
+
     </style>
 </head>
 <body>
@@ -472,7 +473,7 @@
         <!-- Materials Section -->
         <div class="feature-section" id="materialsSection">
             <div class="dropdown-container">
-                <select id="semesterSelect" onchange="showCourses()">
+                <select class="gpaSems" id="semesterSelect" onchange="showCourses()">
                     <option value="">- Select Academic Semester -</option>
                     <option value="100-1">100 Level - First Semester</option>
                     <option value="100-2">100 Level - Second Semester</option>
@@ -497,7 +498,7 @@
             <div class="gpa-container" id="gpaCalculator">
                 <div class="gpa-header">
                     <h3>GPA Calculator</h3>
-                    <select id="gpaSemester" onchange="loadCoursesForGPA()">
+                    <select class="gpaSems" id="gpaSemester" onchange="loadCoursesForGPA()">
                         <option value="">Select Semester</option>
                         <option value="100-1">100 Level - 1st</option>
                         <option value="100-2">100 Level - 2nd</option>
@@ -526,8 +527,7 @@
         <a href="https://t.me/official_mazimum">
             <i class="fa-brands fa-telegram"></i> <!-- Email Icon -->
         </a>
-    </div>
-    <script src="index.js">
-    </script>
+    </div>  
+    <script src="index.js"></script>
 </body>
 </html>
