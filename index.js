@@ -27,7 +27,7 @@ if (activeFeature === featureName) {
 const passwords = {
 '100-1': 'temperature',
 '100-2': 'humidity',
-'200-1': 'rainfall',
+'200-1': '230908',
 '200-2': 'sunshine',
 '300-1': 'wind',
 '300-2': 'pressure'
