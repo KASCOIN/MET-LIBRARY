@@ -714,6 +714,7 @@ select:hover {
     z-index: 1000;
     border-radius: 15px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
 }
 
 .doc-header {
@@ -749,6 +750,22 @@ select:hover {
     width: 100%;
     height: calc(100% - 60px);
     border: none;
+}
+
+#docTitle::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Custom scrollbar for results container */

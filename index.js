@@ -81,8 +81,9 @@ const courseData = {
             name: 'Nigerian Peoples and Culture',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Note 1', pdfFile: 'Courses Materials/100-1/GST 111/LOVE.docx' },
-                { name: 'Lecture Note 2', pdfFile: 'Courses Materials/100-1/GST 111/GST201-Study Session 1.pdf' }
+                { name: 'Lecture Note 1', fileLink: 'Courses Materials/100-1/GST 111/LOVE.docx' },
+                { name: 'Lecture Note 2', fileLink: 'Courses Materials/100-1/GST 111/GST201-Study Session 1.pdf' },
+				{ name: 'Lecture Note 3', fileLink: 'Courses Materials/100-1/GST 111/MET 212a.pptx'}
             ]
         },
         {
@@ -90,8 +91,8 @@ const courseData = {
             name: 'Elementary Mathematics I',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/100-1/MTH101_1.pdf' },
-                { name: 'Past Questions', pdfFile: 'workspace/100-1/MTH101_PQ.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/100-1/MTH101_1.pdf' },
+                { name: 'Past Questions', fileLink: 'workspace/100-1/MTH101_PQ.pdf' }
             ]
         },
         {
@@ -99,8 +100,8 @@ const courseData = {
             name: 'General Biology I',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/100-1/BIO101_1.pdf' },
-                { name: 'Lab Manual', pdfFile: 'workspace/100-1/BIO101_lab.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/100-1/BIO101_1.pdf' },
+                { name: 'Lab Manual', fileLink: 'workspace/100-1/BIO101_lab.pdf' }
             ]
         },
         {
@@ -108,8 +109,8 @@ const courseData = {
             name: 'General Biology Practical I',
             type: 'Compulsory',
             materials: [
-                { name: 'Practical Guide', pdfFile: 'workspace/100-1/BIO107_guide.pdf' },
-                { name: 'Lab Report Template', pdfFile: 'workspace/100-1/BIO107_template.pdf' }
+                { name: 'Practical Guide', fileLink: 'workspace/100-1/BIO107_guide.pdf' },
+                { name: 'Lab Report Template', fileLink: 'workspace/100-1/BIO107_template.pdf' }
             ]
         },
         {
@@ -117,8 +118,8 @@ const courseData = {
             name: 'General Chemistry I',
             type: 'Elective',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/100-1/CHM101_notes.pdf' },
-                { name: 'Practice Problems', pdfFile: 'workspace/100-1/CHM101_problems.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/100-1/CHM101_notes.pdf' },
+                { name: 'Practice Problems', fileLink: 'workspace/100-1/CHM101_problems.pdf' }
             ]
         },
         {
@@ -126,8 +127,8 @@ const courseData = {
             name: 'General Chemistry Practical I',
             type: 'Compulsory',
             materials: [
-                { name: 'Lab Manual', pdfFile: 'workspace/100-1/CHM107_manual.pdf' },
-                { name: 'Safety Guidelines', pdfFile: 'workspace/100-1/CHM107_safety.pdf' }
+                { name: 'Lab Manual', fileLink: 'workspace/100-1/CHM107_manual.pdf' },
+                { name: 'Safety Guidelines', fileLink: 'workspace/100-1/CHM107_safety.pdf' }
             ]
         },
         {
@@ -135,8 +136,8 @@ const courseData = {
             name: 'Introduction to Meteorology',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/100-1/MET101_notes.pdf' },
-                { name: 'Study Guide', pdfFile: 'workspace/100-1/MET101_guide.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/100-1/MET101_notes.pdf' },
+                { name: 'Study Guide', fileLink: 'workspace/100-1/MET101_guide.pdf' }
             ]
         },
         {
@@ -144,8 +145,8 @@ const courseData = {
             name: 'General Physics I',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Materials', pdfFile: 'workspace/100-1/PHY101_lecture.pdf' },
-                { name: 'Problem Set', pdfFile: 'workspace/100-1/PHY101_problems.pdf' }
+                { name: 'Lecture Materials', fileLink: 'workspace/100-1/PHY101_lecture.pdf' },
+                { name: 'Problem Set', fileLink: 'workspace/100-1/PHY101_problems.pdf' }
             ]
         },
         {
@@ -153,8 +154,8 @@ const courseData = {
             name: 'General Physics Practical I',
             type: 'Elective',
             materials: [
-                { name: 'Lab Guide', pdfFile: 'workspace/100-1/PHY107_guide.pdf' },
-                { name: 'Data Sheets', pdfFile: 'workspace/100-1/PHY107_data.pdf' }
+                { name: 'Lab Guide', fileLink: 'workspace/100-1/PHY107_guide.pdf' },
+                { name: 'Data Sheets', fileLink: 'workspace/100-1/PHY107_data.pdf' }
             ]
         },
         {
@@ -162,8 +163,8 @@ const courseData = {
             name: 'Introduction to Climate Science and Development',
             type: 'Compulsory',
             materials: [
-                { name: 'Study Material', pdfFile: 'workspace/100-1/LAGMET131_study.pdf' },
-                { name: 'Reference Guide', pdfFile: 'workspace/100-1/LAGMET131_ref.pdf' }
+                { name: 'Study Material', fileLink: 'workspace/100-1/LAGMET131_study.pdf' },
+                { name: 'Reference Guide', fileLink: 'workspace/100-1/LAGMET131_ref.pdf' }
             ]
         },
         {
@@ -171,8 +172,8 @@ const courseData = {
             name: 'Climate and the terrestrial environments',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/100-1/LAGMET133_notes.pdf' },
-                { name: 'Case Studies', pdfFile: 'workspace/100-1/LAGMET133_cases.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/100-1/LAGMET133_notes.pdf' },
+                { name: 'Case Studies', fileLink: 'workspace/100-1/LAGMET133_cases.pdf' }
             ]
         },
         {
@@ -180,8 +181,8 @@ const courseData = {
             name: 'Introduction to Hydrology',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/100-1/GEO109_notes.pdf' },
-                { name: 'Field Guide', pdfFile: 'workspace/100-1/GEO109_field.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/100-1/GEO109_notes.pdf' },
+                { name: 'Field Guide', fileLink: 'workspace/100-1/GEO109_field.pdf' }
             ]
         },
         {
@@ -189,8 +190,8 @@ const courseData = {
             name: 'Introduction to Environmental Science',
             type: 'Elective',
             materials: [
-                { name: 'Study Material', pdfFile: 'workspace/100-1/GEO105_study.pdf' },
-                { name: 'Project Guide', pdfFile: 'workspace/100-1/GEO105_project.pdf' }
+                { name: 'Study Material', fileLink: 'workspace/100-1/GEO105_study.pdf' },
+                { name: 'Project Guide', fileLink: 'workspace/100-1/GEO105_project.pdf' }
             ]
         },
         {
@@ -198,8 +199,8 @@ const courseData = {
             name: 'Introduction to Computing Science',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/100-1/COS101_material.pdf' },
-                { name: 'Practice Exercises', pdfFile: '/' }
+                { name: 'Course Material', fileLink: 'workspace/100-1/COS101_material.pdf' },
+                { name: 'Practice Exercises', fileLink: '/' }
             ]
         }
     ],
@@ -209,8 +210,8 @@ const courseData = {
             name: 'Man and Environment',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/100-2/MET121_notes.pdf' },
-                { name: 'Study Guide', pdfFile: 'workspace/100-2/MET121_guide.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/100-2/MET121_notes.pdf' },
+                { name: 'Study Guide', fileLink: 'workspace/100-2/MET121_guide.pdf' }
             ]
         },
         {
@@ -218,8 +219,8 @@ const courseData = {
             name: 'Climate change and sustainable development',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/100-2/MET122_material.pdf' },
-                { name: 'Case Studies', pdfFile: 'workspace/100-2/MET122_cases.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/100-2/MET122_material.pdf' },
+                { name: 'Case Studies', fileLink: 'workspace/100-2/MET122_cases.pdf' }
             ]
         },
         {
@@ -227,8 +228,8 @@ const courseData = {
             name: 'Meteorological Instrumentation II',
             type: 'Compulsory',
             materials: [
-                { name: 'Lab Manual', pdfFile: 'workspace/100-2/MET123_manual.pdf' },
-                { name: 'Safety Guidelines', pdfFile: 'workspace/100-2/MET123_safety.pdf' }
+                { name: 'Lab Manual', fileLink: 'workspace/100-2/MET123_manual.pdf' },
+                { name: 'Safety Guidelines', fileLink: 'workspace/100-2/MET123_safety.pdf' }
             ]
         },
         {
@@ -236,8 +237,8 @@ const courseData = {
             name: 'Map Analysis and Meteorological Data Graphics',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/100-2/MET124_notes.pdf' },
-                { name: 'Practical Guide', pdfFile: 'workspace/100-2/MET124_guide.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/100-2/MET124_notes.pdf' },
+                { name: 'Practical Guide', fileLink: 'workspace/100-2/MET124_guide.pdf' }
             ]
         },
         {
@@ -245,8 +246,8 @@ const courseData = {
             name: 'COMPUTER AS A PROBLEM SOLVING TOOL',
             type: 'Elective',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/100-2/CSC120_material.pdf' },
-                { name: 'Lab Manual', pdfFile: 'workspace/100-2/CSC120_lab.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/100-2/CSC120_material.pdf' },
+                { name: 'Lab Manual', fileLink: 'workspace/100-2/CSC120_lab.pdf' }
             ]
         },
         {
@@ -254,8 +255,8 @@ const courseData = {
             name: 'SOFTWARE WORKSHOP II',
             type: 'Elective',
             materials: [
-                { name: 'Workshop Manual', pdfFile: 'workspace/100-2/CSC121_manual.pdf' },
-                { name: 'Project Guidelines', pdfFile: 'workspace/100-2/CSC121_project.pdf' }
+                { name: 'Workshop Manual', fileLink: 'workspace/100-2/CSC121_manual.pdf' },
+                { name: 'Project Guidelines', fileLink: 'workspace/100-2/CSC121_project.pdf' }
             ]
         },
         {
@@ -263,8 +264,8 @@ const courseData = {
             name: 'CALCULUS',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/100-2/MAT122_notes.pdf' },
-                { name: 'Tutorial Questions', pdfFile: 'workspace/100-2/MAT122_tutorials.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/100-2/MAT122_notes.pdf' },
+                { name: 'Tutorial Questions', fileLink: 'workspace/100-2/MAT122_tutorials.pdf' }
             ]
         },
         {
@@ -272,8 +273,8 @@ const courseData = {
             name: 'MECHANICS I',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/100-2/MAT123_material.pdf' },
-                { name: 'Problem Set', pdfFile: 'workspace/100-2/MAT123_problems.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/100-2/MAT123_material.pdf' },
+                { name: 'Problem Set', fileLink: 'workspace/100-2/MAT123_problems.pdf' }
             ]
         },
     ],
@@ -283,8 +284,8 @@ const courseData = {
             name: 'General African Studies I',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/200-1/GST201_notes.pdf' },
-                { name: 'Study Materials', pdfFile: 'workspace/200-1/GST201_materials.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/200-1/GST201_notes.pdf' },
+                { name: 'Study Materials', fileLink: 'workspace/200-1/GST201_materials.pdf' }
             ]
         },
         {
@@ -292,8 +293,8 @@ const courseData = {
             name: 'Atmospheric Environment II',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-1/MET211_notes.pdf' },
-                { name: 'Lab Manual', pdfFile: 'workspace/200-1/MET211_lab.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-1/MET211_notes.pdf' },
+                { name: 'Lab Manual', fileLink: 'workspace/200-1/MET211_lab.pdf' }
             ]
         },
         {
@@ -301,8 +302,8 @@ const courseData = {
             name: 'Codes. Obsv. & Plotting',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/200-1/MET212_material.pdf' },
-                { name: 'Practical Guide', pdfFile: 'workspace/200-1/MET212_guide.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/200-1/MET212_material.pdf' },
+                { name: 'Practical Guide', fileLink: 'workspace/200-1/MET212_guide.pdf' }
             ]
         },
         {
@@ -310,8 +311,8 @@ const courseData = {
             name: 'Elements of Remote Sensing',
             type: 'Elective',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-1/GRY230_notes.pdf' },
-                { name: 'Remote Sensing Data', pdfFile: 'workspace/200-1/GRY230_data.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-1/GRY230_notes.pdf' },
+                { name: 'Remote Sensing Data', fileLink: 'workspace/200-1/GRY230_data.pdf' }
             ]
         },
         {
@@ -319,8 +320,8 @@ const courseData = {
             name: 'Elements of Climatology and Climate Change',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/200-1/GRY212_notes.pdf' },
-                { name: 'Case Studies', pdfFile: 'workspace/200-1/GRY212_cases.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/200-1/GRY212_notes.pdf' },
+                { name: 'Case Studies', fileLink: 'workspace/200-1/GRY212_cases.pdf' }
             ]
         },
         {
@@ -328,8 +329,8 @@ const courseData = {
             name: 'Mathematical Methods I',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-1/MAT233_notes.pdf' },
-                { name: 'Problem Set', pdfFile: 'workspace/200-1/MAT233_problems.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-1/MAT233_notes.pdf' },
+                { name: 'Problem Set', fileLink: 'workspace/200-1/MAT233_problems.pdf' }
             ]
         },
         {
@@ -337,8 +338,8 @@ const courseData = {
             name: 'Numeric Analysis I',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/200-1/MAT216_material.pdf' },
-                { name: 'Lab Manual', pdfFile: 'workspace/200-1/MAT216_lab.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/200-1/MAT216_material.pdf' },
+                { name: 'Lab Manual', fileLink: 'workspace/200-1/MAT216_lab.pdf' }
             ]
         },
         {
@@ -346,8 +347,8 @@ const courseData = {
             name: 'Electronics I',
             type: 'Elective',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-1/PHS216_notes.pdf' },
-                { name: 'Circuit Diagrams', pdfFile: 'workspace/200-1/PHS216_circuits.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-1/PHS216_notes.pdf' },
+                { name: 'Circuit Diagrams', fileLink: 'workspace/200-1/PHS216_circuits.pdf' }
             ]
         },
     ],
@@ -357,8 +358,8 @@ const courseData = {
             name: 'Introduction to Meteorology',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-2/MET101_2_notes.pdf' },
-                { name: 'Practice Questions', pdfFile: 'workspace/200-2/MET101_2_practice.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-2/MET101_2_notes.pdf' },
+                { name: 'Practice Questions', fileLink: 'workspace/200-2/MET101_2_practice.pdf' }
             ]
         },
         {
@@ -366,8 +367,8 @@ const courseData = {
             name: 'Atmospheric Physics',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/200-2/MET102_material.pdf' },
-                { name: 'Lab Manual', pdfFile: 'workspace/200-2/MET102_lab.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/200-2/MET102_material.pdf' },
+                { name: 'Lab Manual', fileLink: 'workspace/200-2/MET102_lab.pdf' }
             ]
         },
         {
@@ -375,8 +376,8 @@ const courseData = {
             name: 'Climate Systems',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/200-2/CLM101_notes.pdf' },
-                { name: 'Case Studies', pdfFile: 'workspace/200-2/CLM101_cases.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/200-2/CLM101_notes.pdf' },
+                { name: 'Case Studies', fileLink: 'workspace/200-2/CLM101_cases.pdf' }
             ]
         },
     ],
@@ -386,8 +387,8 @@ const courseData = {
             name: 'Advanced Meteorology',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/300-1/MET301_material.pdf' },
-                { name: 'Advanced Topics', pdfFile: 'workspace/300-1/MET301_topics.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/300-1/MET301_material.pdf' },
+                { name: 'Advanced Topics', fileLink: 'workspace/300-1/MET301_topics.pdf' }
             ]
         },
         {
@@ -395,8 +396,8 @@ const courseData = {
             name: 'Climate Dynamics',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Notes', pdfFile: 'workspace/300-1/MET302_notes.pdf' },
-                { name: 'Research Articles', pdfFile: 'workspace/300-1/MET302_research.pdf' }
+                { name: 'Lecture Notes', fileLink: 'workspace/300-1/MET302_notes.pdf' },
+                { name: 'Research Articles', fileLink: 'workspace/300-1/MET302_research.pdf' }
             ]
         },
         {
@@ -404,8 +405,8 @@ const courseData = {
             name: 'Climate Change Mitigation',
             type: 'Elective',
             materials: [
-                { name: 'Course Material', pdfFile: 'workspace/300-1/CLM201_material.pdf' },
-                { name: 'Project Guidelines', pdfFile: 'workspace/300-1/CLM201_project.pdf' }
+                { name: 'Course Material', fileLink: 'workspace/300-1/CLM201_material.pdf' },
+                { name: 'Project Guidelines', fileLink: 'workspace/300-1/CLM201_project.pdf' }
             ]
         },
     ],
@@ -415,8 +416,8 @@ const courseData = {
             name: 'Meteorological Modeling',
             type: 'Compulsory',
             materials: [
-                { name: 'Model Guide', pdfFile: 'workspace/300-2/MET311_guide.pdf' },
-                { name: 'Practical Manual', pdfFile: 'workspace/300-2/MET311_manual.pdf' }
+                { name: 'Model Guide', fileLink: 'workspace/300-2/MET311_guide.pdf' },
+                { name: 'Practical Manual', fileLink: 'workspace/300-2/MET311_manual.pdf' }
             ]
         },
         {
@@ -424,8 +425,8 @@ const courseData = {
             name: 'Applied Climatology',
             type: 'Compulsory',
             materials: [
-                { name: 'Course Notes', pdfFile: 'workspace/300-2/MET312_notes.pdf' },
-                { name: 'Field Studies', pdfFile: 'workspace/300-2/MET312_field.pdf' }
+                { name: 'Course Notes', fileLink: 'workspace/300-2/MET312_notes.pdf' },
+                { name: 'Field Studies', fileLink: 'workspace/300-2/MET312_field.pdf' }
             ]
         },
         {
@@ -433,8 +434,8 @@ const courseData = {
             name: 'Climate Policy',
             type: 'Elective',
             materials: [
-                { name: 'Policy Papers', pdfFile: 'workspace/300-2/CLM301_papers.pdf' },
-                { name: 'Project Report', pdfFile: 'workspace/300-2/CLM301_report.pdf' }
+                { name: 'Policy Papers', fileLink: 'workspace/300-2/CLM301_papers.pdf' },
+                { name: 'Project Report', fileLink: 'workspace/300-2/CLM301_report.pdf' }
             ]
         },
     ],
@@ -486,24 +487,52 @@ function displayCourses() {
             </div>
             <div class="course-materials" id="materials-${course.code}">
                 ${course.materials ? course.materials.map(material => {
-                    const isWordFile = material.pdfFile.toLowerCase().endsWith('.docx') || material.pdfFile.toLowerCase().endsWith('.doc');
-                    const absoluteUrl = window.location.protocol + '//' + window.location.host + '/' + material.pdfFile;
-                    const viewerUrl = isWordFile ?
-                        `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` :
-                        `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(absoluteUrl)}`;
+                    const fileExt = material.fileLink.toLowerCase().split('.').pop();
+                    const isWordFile = ['docx', 'doc'].includes(fileExt);
+                    const isPowerPoint = ['pptx', 'ppt'].includes(fileExt);
+                    const isVideo = ['mp4', 'webm', 'ogg'].includes(fileExt);
+                    const isImage = ['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(fileExt);
+                    
+                    const absoluteUrl = window.location.protocol + '//' + window.location.host + '/' + material.fileLink;
+                    let viewerUrl = '';
+                    
+                    if (isWordFile) {
+                        viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`;
+                    } else if (isPowerPoint) {
+                        viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`;
+                    } else if (isVideo || isImage) {
+                        viewerUrl = material.fileLink;
+                    } else {
+                        viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(absoluteUrl)}`;
+                    }
+                    
+                    const getFileIcon = () => {
+                        if (isWordFile) return 'fa-file-word';
+                        if (isPowerPoint) return 'fa-file-powerpoint';
+                        if (isVideo) return 'fa-file-video';
+                        if (isImage) return 'fa-file-image';
+                        return 'fa-file-pdf';
+                    };
+
+                    const getFileColor = () => {
+                        if (isWordFile) return '#0d6efd';
+                        if (isPowerPoint) return '#ff6f00';
+                        if (isVideo) return '#4caf50';
+                        if (isImage) return '#9c27b0';
+                        return '#dc3545';
+                    };
                     
                     return `
                         <div class="material-item">
                             <div class="material-info">
-                                <i class="fas ${isWordFile ? 'fa-file-word' : 'fa-file-pdf'}" 
-                                   style="color: ${isWordFile ? '#0d6efd' : '#dc3545'}"></i>
+                                <i class="fas ${getFileIcon()}" style="color: ${getFileColor()}"></i>
                                 <span class="material-name">${material.name}</span>
                             </div>
                             <div class="material-actions">
-                                <button class="action-btn view-btn" onclick="showDocViewer('${viewerUrl}', '${material.name}')" title="View">
+                                <button class="action-btn view-btn" onclick="showDocViewer('${viewerUrl}', '${material.name}', '${fileExt}')" title="View">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <a href="${material.pdfFile}" class="action-btn download-btn" title="Download" download>
+                                <a href="${material.fileLink}" class="action-btn download-btn" title="Download" download>
                                     <i class="fas fa-download"></i>
                                 </a>
                             </div>
@@ -520,17 +549,40 @@ function displayCourses() {
     }, 100);
 }
 
-function showDocViewer(url, title) {
+function showDocViewer(url, title, fileType) {
     const viewer = document.getElementById('docViewer');
     const iframe = document.getElementById('docFrame');
     const viewerTitle = document.getElementById('docTitle');
     
-    iframe.onerror = () => {
-        alert('Preview not available. Please download the file instead.');
-        closeDocViewer();
-    };
+    if (['mp4', 'webm', 'ogg'].includes(fileType)) {
+        iframe.style.display = 'none';
+        let video = document.getElementById('mediaViewer') || document.createElement('video');
+        video.id = 'mediaViewer';
+        video.controls = true;
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.src = url;
+        if (!document.getElementById('mediaViewer')) {
+            iframe.parentNode.appendChild(video);
+        }
+    } else if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(fileType)) {
+        iframe.style.display = 'none';
+        let img = document.getElementById('mediaViewer') || document.createElement('img');
+        img.id = 'mediaViewer';
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '100%';
+        img.style.objectFit = 'contain';
+        img.src = url;
+        if (!document.getElementById('mediaViewer')) {
+            iframe.parentNode.appendChild(img);
+        }
+    } else {
+        iframe.style.display = 'block';
+        const mediaViewer = document.getElementById('mediaViewer');
+        if (mediaViewer) mediaViewer.remove();
+        iframe.src = url;
+    }
     
-    iframe.src = url;
     viewerTitle.textContent = title;
     viewer.style.display = 'block';
     document.getElementById('docOverlay').style.display = 'block';
@@ -539,10 +591,12 @@ function showDocViewer(url, title) {
 function closeDocViewer() {
     const viewer = document.getElementById('docViewer');
     const iframe = document.getElementById('docFrame');
+    const mediaViewer = document.getElementById('mediaViewer');
     
     viewer.style.display = 'none';
     document.getElementById('docOverlay').style.display = 'none';
     iframe.src = '';
+    if (mediaViewer) mediaViewer.remove();
 }
 
 // Add event listeners for closing
