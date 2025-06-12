@@ -83,9 +83,9 @@ const courseData = {
             name: 'Nigerian Peoples and Culture',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Note 1', fileLink: `${GITHUB_BASE_URL}Materials/100-1/GST111/LOVE.docx` },
-                { name: 'Lecture Note 2', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/lecture.pdf` },
-                { name: 'Lecture Note 3', fileLink: `${GITHUB_BASE_URL}Courses Materials/100-1/GST 111/MET 212a.pptx`}
+                { name: 'Lecture Note 1', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/LOVE.docx`},
+                { name: 'Lecture Note 2', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/lecture.pdf`},
+                { name: 'Lecture Note 3', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/lecture.pdf`}
             ]
         },
         {
@@ -557,6 +557,7 @@ function showDocViewer(url, title, fileType) {
     const viewerTitle = document.getElementById('docTitle');
     
     if (['mp4', 'webm', 'ogg'].includes(fileType)) {
+        // Handle video files
         iframe.style.display = 'none';
         let video = document.getElementById('mediaViewer') || document.createElement('video');
         video.id = 'mediaViewer';
@@ -568,6 +569,7 @@ function showDocViewer(url, title, fileType) {
             iframe.parentNode.appendChild(video);
         }
     } else if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(fileType)) {
+        // Handle image files
         iframe.style.display = 'none';
         let img = document.getElementById('mediaViewer') || document.createElement('img');
         img.id = 'mediaViewer';
@@ -578,21 +580,21 @@ function showDocViewer(url, title, fileType) {
         if (!document.getElementById('mediaViewer')) {
             iframe.parentNode.appendChild(img);
         }
-    } else if (['pdf'].includes(fileType)) {
-        iframe.style.display = 'block';
-        const mediaViewer = document.getElementById('mediaViewer');
-        if (mediaViewer) mediaViewer.remove();
-        iframe.src = url;
     } else {
         iframe.style.display = 'block';
         const mediaViewer = document.getElementById('mediaViewer');
         if (mediaViewer) mediaViewer.remove();
+
+        const absoluteUrl = url.startsWith('http') ? url : window.location.origin + '/' + url;
         
-        // For Office documents, use Office Online Viewer
         if (['doc', 'docx', 'ppt', 'pptx'].includes(fileType)) {
-            iframe.src = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
+            iframe.src = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`;
+        } else if (fileType === 'pdf') {
+            // Use PDF.js viewer directly
+            iframe.src = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(material.fileLink)}`;
         } else {
-            iframe.src = url;
+            window.open(url, '_blank');
+            return;
         }
     }
     
@@ -605,6 +607,12 @@ function closeDocViewer() {
     const viewer = document.getElementById('docViewer');
     const iframe = document.getElementById('docFrame');
     const mediaViewer = document.getElementById('mediaViewer');
+    
+    // Revoke blob URL if it exists
+    if (iframe.dataset.blobUrl) {
+        URL.revokeObjectURL(iframe.dataset.blobUrl);
+        delete iframe.dataset.blobUrl;
+    }
     
     viewer.style.display = 'none';
     document.getElementById('docOverlay').style.display = 'none';
