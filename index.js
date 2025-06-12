@@ -83,8 +83,8 @@ const courseData = {
             name: 'Nigerian Peoples and Culture',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Note 1', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/LOVE.docx` },
-                { name: 'Lecture Note 2', fileLink: `${GITHUB_BASE_URL}Courses Materials/100-1/GST 111/GST201-Study Session 1.pdf` },
+                { name: 'Lecture Note 1', fileLink: `${GITHUB_BASE_URL}Materials/100-1/GST111/LOVE.docx` },
+                { name: 'Lecture Note 2', fileLink: `${GITHUB_BASE_URL}Materials/100-1/GST 111/GST201-Study Session 1.pdf` },
                 { name: 'Lecture Note 3', fileLink: `${GITHUB_BASE_URL}Courses Materials/100-1/GST 111/MET 212a.pptx`}
             ]
         },
