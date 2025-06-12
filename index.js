@@ -83,9 +83,9 @@ const courseData = {
             name: 'Nigerian Peoples and Culture',
             type: 'Compulsory',
             materials: [
-                { name: 'Lecture Note 1', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Courses Materials/100-1/GST 111/LOVE.docx` },
-                { name: 'Lecture Note 2', fileLink: 'https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Courses Materials/100-1/GST 111/200 level reciept.pdf' },
-				{ name: 'Lecture Note 3', fileLink: 'Courses Materials/100-1/GST 111/MET 212a.pptx'}
+                { name: 'Lecture Note 1', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Materials/100-1/GST111/LOVE.docx` },
+                { name: 'Lecture Note 2', fileLink: `${GITHUB_BASE_URL}Courses Materials/100-1/GST 111/GST201-Study Session 1.pdf` },
+                { name: 'Lecture Note 3', fileLink: `${GITHUB_BASE_URL}Courses Materials/100-1/GST 111/MET 212a.pptx`}
             ]
         },
         {
@@ -578,11 +578,22 @@ function showDocViewer(url, title, fileType) {
         if (!document.getElementById('mediaViewer')) {
             iframe.parentNode.appendChild(img);
         }
-    } else {
+    } else if (['pdf'].includes(fileType)) {
         iframe.style.display = 'block';
         const mediaViewer = document.getElementById('mediaViewer');
         if (mediaViewer) mediaViewer.remove();
         iframe.src = url;
+    } else {
+        iframe.style.display = 'block';
+        const mediaViewer = document.getElementById('mediaViewer');
+        if (mediaViewer) mediaViewer.remove();
+        
+        // For Office documents, use Office Online Viewer
+        if (['doc', 'docx', 'ppt', 'pptx'].includes(fileType)) {
+            iframe.src = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
+        } else {
+            iframe.src = url;
+        }
     }
     
     viewerTitle.textContent = title;
