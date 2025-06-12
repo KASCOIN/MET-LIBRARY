@@ -84,7 +84,7 @@ const courseData = {
             type: 'Compulsory',
             materials: [
                 { name: 'Lecture Note 1', fileLink: `https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Courses Materials/100-1/GST 111/LOVE.docx` },
-                { name: 'Lecture Note 2', fileLink: 'Courses Materials/100-1/GST 111/200 level reciept.pdf' },
+                { name: 'Lecture Note 2', fileLink: 'https://raw.githubusercontent.com/KASCOIN/MET-LIBRARY/main/Courses Materials/100-1/GST 111/200 level reciept.pdf' },
 				{ name: 'Lecture Note 3', fileLink: 'Courses Materials/100-1/GST 111/MET 212a.pptx'}
             ]
         },
