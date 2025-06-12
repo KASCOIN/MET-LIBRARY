@@ -3,449 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-7526041269279947">
     <title>METEOROLOGY & CLIMATE SCIENCE STUDENT LIBRARY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-   
-     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.2;
-            background: url('bg-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            background: rgba(39, 18, 51, 0.8);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header h1 {
-            font-size: 1.0rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            flex: 1; /* Allow the container to grow and fill space */
-        }
-
-        /* Feature Buttons */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-btn {
-            padding: 2rem;
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .feature-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .feature-btn.gpa {
-            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-        }
-
-        /* Feature Sections */
-        .feature-section {
-            display: none;
-            margin: 2rem 0;
-        }
-
-        /* Materials Section */
-        .dropdown-container {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        select {
-            padding: 15px 25px;
-            font-size: 1.1rem;
-            border: 2px solid #007bff;
-            border-radius: 30px;
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            width: 100%;
-            max-width: 400px;
-            appearance: none;
-            -webkit-appearance: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,123,255, 0.1);
-        }
-
-        select:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,123,255,0.15);
-        }
-
-        .dropdown-icon {
-            position: absolute;
-            right: calc(50% - 200px);
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            color: #007bff;
-        }
-
-        .courses-container {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .course-btn {
-            padding: 1.5rem;
-            background: white;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .course-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .course-icon {
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .course-info {
-            flex-grow: 1;
-        }
-
-        .course-code {
-            font-weight: 700;
-            color: #004d74;
-            margin-bottom: 0.5rem;
-        }
-
-        /* GPA Calculator Section */
-        .gpa-container {
-            display: none;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin: 2rem 0;
-        }
-
-        .gpa-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .gpa-course-list {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .gpa-course {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #96bfe9;
-            border-radius: 10px;
-        }
-
-        .grade-select {
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid #b5afec;
-            background: rgb(83, 97, 230);
-        }
-
-        .gpa-result {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #004d74;
-            padding: 1rem;
-            background: #afcae2;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-
-        /* Password Modal Styles */
-        .password-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .password-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 1rem 0;
-            border: 2px solid #007bff;
-            border-radius: 25px;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .password-input:focus {
-            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1 rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .modal-button {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .confirm-btn {
-            background: #007bff;
-            color: white;
-        }
-
-        .confirm-btn:hover {
-            background: #0056b3;
-        }
-
-        .cancel-btn {
-            background: #f8f9fa;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-
-        .cancel-btn:hover {
-            background: #e9ecef;
-        }
-
-        .error-message {
-            color: #dc3545;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        /* Footer Styles */
-        .footer {
-            color: white;
-            text-align: center;
-            padding: 0.7rem 0;
-            position: relative; /* Make the footer relative */
-            bottom: 0.7rem;
-            width: 100%;
-        }
-
-        .footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            border: 2px solid white;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .footer a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer .footer-text {
-            font-style: italic; /* Make the text cursive */
-            font-size: 0.9rem; /* Smaller font size */
-            margin-top: 0.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 1.5rem;
-            }
-            
-            .dropdown-icon {
-                right: 15px;
-            }
-            
-            select {
-                font-size: 1rem;
-                padding: 12px 20px;
-            }
-
-            .gpa-course {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .feature-btn {
-                padding: 1.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* Add styles for the search bar */
-        .search-container {
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .search-input {
-            padding: 10px;
-            font-size: 1rem;
-            border: 2px solid #007bff;
-            border-radius: 25px;
-            width: 80%;
-            max-width: 400px;
-            outline: none;
-            transition: all 0.3s ease;
-            background-color: rgb(147, 143, 204);
-            color: white;
-        }
-
-        .search-input:focus {
-            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-        }
-
-        .search-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            background: #007bff;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .search-button:hover {
-            background: #0056b3;
-        }
-
-        .results-container {
-            display: none;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .result-item {
-            padding: 10px;
-            border: 1px solid #007bff;
-            border-radius: 10px;
-            margin: 5px 0;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            color: white;
-            background-color: black;
-        }
-
-        .result-item:hover {
-            background: #e9ecef;
-            color: black;
-        }
-
-        .gpaSems {
-            background: rgb(173, 180, 238);
-            border: solid 2px;
-            border-radius: 30px;
-            color: black;
-            
-        }
-
-
-    </style>
 </head>
-<body>
-   
+<body Id="page-content">
     <div class="password-modal" id="passwordModal">
-        <div class="password-box">
-            <h3 id="modalTitle">Enter Semester Password</h3>
+        <form class="password-box" onsubmit="return false;">
+            <div id="modalTitle">Enter Semester Password</div>
             <input type="password" class="password-input" id="passwordInput" placeholder="Enter password...">
             <div class="error-message" id="errorMessage">Incorrect password!</div>
-            <div class="modal-buttons">
-                <button class="modal-button confirm-btn" onclick="checkPassword()">Submit</button>
-                <button class="modal-button cancel-btn" onclick="closeModal()">Cancel</button>
+            <div class="modal-buttons" >
+                <input type="submit" class="modal-button confirm-btn" onclick="checkPassword()">
+                <button class="modal-button cancel-btn" onclick="closeModal()">Close</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <header class="header">
@@ -455,19 +28,19 @@
 
     <div class="container">
         <div class="features-grid">
-            <button class="feature-btn" onclick="toggleFeature('materials')">
+            <button class="feature-btn" onclick="toggleFeature('materials')" style="color:black;">
                 <span class="feature-icon">📚</span>
                 Study Materials
             </button>
             
-            <button class="feature-btn gpa" onclick="toggleFeature('gpa')">
+            <button class="feature-btn gpa" onclick="toggleFeature('gpa')" style="color:black;">
                 <span class="feature-icon">🧮</span>
                 GPA Calculator
             </button>
 
-            <button class="feature-btn" onclick="openUrl()">
-                <span class="feature-icon">📝</span>
-                Blog
+            <button class="feature-btn summary" onclick="toggleFeature('summary')" style="color:black;">
+                <span class="feature-icon">📋</span>
+                Materials Summary
             </button>
         </div>
 
@@ -487,7 +60,6 @@
             </div>
             <div class="search-container">
                 <input type="text" class="search-input" id="courseSearch" placeholder="Search by course code...">
-                <button class="search-button" onclick="showSearchResults()">Search</button>
             </div>
             <div id="resultsContainer" class="results-container"></div>
             <div id="coursesContainer" class="courses-container"></div>
@@ -498,7 +70,7 @@
         <div class="feature-section" id="gpaSection" style="display: none;">
             <div class="gpa-container" id="gpaCalculator">
                 <div class="gpa-header">
-                    <h3>GPA Calculator</h3>
+                    <h3>GP Calculator</h3>
                     <select class="gpaSems" id="gpaSemester" onchange="loadCoursesForGPA()">
                         <option value="">Select Semester</option>
                         <option value="100-1">100 Level - 1st</option>
@@ -514,7 +86,27 @@
                 <div class="gpa-result" id="gpaResult"></div>
             </div>
         </div>
+
+        <!-- Summary Section -->
+        <div class="feature-section" id="summarySection" style="display: none;">
+            <div class="summary-container">
+                <h3>Course Materials Summary</h3>
+                <div id="summaryContent"></div>
+            </div>
+        </div>
         
+    </div>
+
+    <!-- Document Viewer -->
+    <div class="doc-overlay" id="docOverlay"></div>
+    <div class="doc-viewer" id="docViewer">
+        <div class="doc-header">
+            <h3 id="docTitle"></h3>
+            <button class="close-doc-btn" onclick="closeDocViewer()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <iframe id="docFrame" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 
     <div class="footer">
@@ -528,7 +120,7 @@
         <a href="https://t.me/official_mazimum">
             <i class="fa-brands fa-telegram"></i> <!-- Email Icon -->
         </a>
-    </div>
-    <script src="index.js"></script>
+    </div>  
+<script src="/index.js"></script>
 </body>
 </html>
